@@ -52,7 +52,7 @@ while True:
     except subprocess.CalledProcessError as exc:
         die("Error calling pvs (%d)" % exc.returncode)
 
-    for seg in pvs.split("\n"):
+    for seg in pvs.decode().split("\n"):
         if seg.strip() == "":
             continue
         (lv, start, size) = seg.strip().split(',')
